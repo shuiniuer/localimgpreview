@@ -4,7 +4,6 @@
             "inputElem": "#imgInput",
             "imgElem": "#imgPreviewTag",
             "width": 310,
-            "height": 310,
             "defaultImg": "http://i00.c.aliimg.com/cms/upload/2014/704/088/1880407_1917015703.jpg",
             "error": function(){
                 alert('图片格式常，请检查！');
@@ -59,6 +58,11 @@
                         docObj.select();
                         //必须设置初始大小
                         localImg.style.width = config.width + "px";
+
+                        if(typeof config.height === 'undefined'){
+                            config.height = config.width;
+                        }
+                        
                         localImg.style.height = config.height + "px";
                         //图片异常的捕捉，防止用户修改后缀来伪造图片
                         try{
