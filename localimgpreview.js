@@ -12,7 +12,7 @@
         };
         config = $.extend(config, configObj);
         
-        $(config.inputElem).on(change,function(){
+        $(config.inputElem).on('change',function(){
             var URL = window.URL || window.webkitURL;
 
             var hash = {
