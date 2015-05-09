@@ -1,6 +1,5 @@
 ;(function($){
     function localImgPreview(config){
-
         $(config.inputElem).on('change',function(){
             var URL = window.URL || window.webkitURL;
 
@@ -43,7 +42,6 @@
                         //低版本IE使用滤镜
                         previewElem = previewElem[0];
                         var imgSrc = document.selection.createRange().text;
-                        
                         obj.select();
                         //必须设置初始大小
                         previewElem.style.width = config.width + "px";
