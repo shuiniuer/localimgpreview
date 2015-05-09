@@ -14,15 +14,14 @@
             var obj=this,
                 files = obj.files,
                 previewElem = $(config.previewElem),
-                img = previewElem.find('img'),
-                fileName = $(obj).val(),
-                ext = fileName.match(re);
-
-            ext = ext[0].toLowerCase();
+                img = previewElem.find('img')[0],
+                fileName = $(obj).val();
 
             if($.trim(fileName) === ''){
                 img.src = config.defaultImg;
             }else{
+                var ext = fileName.match(re);
+                ext = ext[0].toLowerCase();
                 if (hash[ext]) {
                     if(URL){
                         //创建一个object URL，并不是本地路径
