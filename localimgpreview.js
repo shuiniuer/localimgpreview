@@ -40,7 +40,7 @@
                             img.width = config.width;
                         }
                     }else{
-                        //IE下，使用滤镜
+                        //低版本IE使用滤镜
                         previewElem = previewElem[0];
                         var imgSrc = document.selection.createRange().text;
                         
