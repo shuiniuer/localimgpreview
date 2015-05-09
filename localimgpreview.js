@@ -1,16 +1,6 @@
 ;(function($){
-    function localImgPreview(configObj){
-        var config = {
-            "inputElem": "#imgInput",
-            "imgElem": "#imgPreviewTag",
-            "width": 310,
-            "defaultImg": "http://i00.c.aliimg.com/cms/upload/2014/704/088/1880407_1917015703.jpg",
-            "error": function(){
-                alert('图片格式常，请检查！');
-            }
-        };
-        config = $.extend(config, configObj);
-        
+    function localImgPreview(config){
+
         $(config.inputElem).on('change',function(){
             var URL = window.URL || window.webkitURL;
 
@@ -23,7 +13,8 @@
 
             var obj=this,
                 files = obj.files,
-                img = $(config.imgElem)[0],
+                previewElem = $(config.previewElem),
+                img = previewElem.find('img'),
                 fileName = $(obj).val(),
                 ext = fileName.match(re);
 
@@ -51,23 +42,22 @@
                         }
                     }else{
                         //IE下，使用滤镜
-                        var docObj=document.getElementById("picDoc"),
-                            imgSrc = document.selection.createRange().text,
-                            localImg= document.getElementById("localImg");
+                        previewElem = previewElem[0];
+                        var imgSrc = document.selection.createRange().text;
                         
-                        docObj.select();
+                        obj.select();
                         //必须设置初始大小
-                        localImg.style.width = config.width + "px";
+                        previewElem.style.width = config.width + "px";
 
                         if(typeof config.height === 'undefined'){
                             config.height = config.width;
                         }
                         
-                        localImg.style.height = config.height + "px";
+                        previewElem.style.height = config.height + "px";
                         //图片异常的捕捉，防止用户修改后缀来伪造图片
                         try{
-                            localImg.style.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
-                            localImg.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+                            previewElem.style.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+                            previewElem.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
                         }catch(e){
                             //执行错误提醒
                             config.error();
