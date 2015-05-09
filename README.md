@@ -1,5 +1,5 @@
 # localimgpreview
-一个纯前端实现的图片上传本地预览的jquery插件
+一个纯前端实现的图片本地预览的jquery插件
 
 # 调用方式 demo （注意dom结构）
 	<!DOCTYPE html>
