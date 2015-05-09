@@ -1,19 +1,7 @@
 # localimgpreview
- 一个浏览器本地图片预览的jquery插件
+一个纯前端实现的图片上传本地预览的jquery插件
 
-# 调用方式
- 	$.localImgPreview({
- 		"inputElem": "#imgInput",
-        "previewElem": "#previewTag",
-        "width": 310,
-        "height": 310,
-        "defaultImg": "http://52hdp.com/img/preview.jpg",
-        "error": function(){
-            alert('图片格式常，请检查！');
-        }
-	});
-	
-#demo
+# 调用方式 demo （注意dom结构）
 	<!DOCTYPE html>
 	<html lang="zh-CN">
 	  <head>
