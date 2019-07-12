@@ -36,7 +36,7 @@
 	  </script>
 	</html>
 
-#参数解释
+# 参数解释
 
 - "inputElem": 用于上传图片的input元素（必填）
 - "previewElem": 用于预览图片的img元素（必填）
